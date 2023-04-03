@@ -68,8 +68,16 @@ function addListeners() {
   })
 }
 
+function resetFilters() {
+  searchInput.value = '';
+  speciesFilter.value = '';
+  genderFilter.value = '';
+  statusFilter.value = '';
+}
+
 async function main() {
   const characters = await getCharacters(defaultFilters);
+  resetFilters();
   addListeners()
   render({ characters });
 }
